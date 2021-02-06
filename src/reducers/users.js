@@ -1,27 +1,32 @@
+import { GET_USER_DETAIL, GET_USER_LIST } from "../actions/UserAction";
+
 let initialState = {
   title: "Latihan CRUD dengan Redux",
-  users: [
-    {
-      id: 1,
-      nama: "Syahabuddin",
-      alamat: "Kemit",
-    },
-    {
-      id: 2,
-      nama: "Hylmi",
-      alamat: "Kwaren",
-    },
-    {
-      id: 3,
-      nama: "Husna",
-      alamat: "Ngawen",
-    },
-  ],
-  error: false,
+  getUserList: false,
+  getErrorList: false,
+  getUserDetail: false,
+  getDetailError: false,
 };
 
 const users = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case GET_USER_LIST:
+      return {
+        ...state,
+        getUserList: action.payload.data,
+        getErrorList: action.payload.errorMessage,
+      };
+
+    case GET_USER_DETAIL:
+      return {
+        ...state,
+        getUserDetail: action.payload.data,
+        getDetailError: action.payload.errorMessage,
+      };
+
+    default:
+      return state;
+  }
 };
 
 export default users;
