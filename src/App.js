@@ -14,18 +14,10 @@ export default class App extends Component {
         <NavbarComponent />
         <HeroComponent />
         <BrowserRouter>
-          <Route exact path="/">
-            <HomeComponent />
-          </Route>
-          <Route exact path="/create">
-            <CreateUserComponent />
-          </Route>
-          <Route exact path="/edit/:id">
-            <EditUserComponent />
-          </Route>
-          <Route exact path="/detail/:id">
-            <DetailUserComponent />
-          </Route>
+          <Route exact path="/" component={HomeComponent} />
+          <Route exact path="/create" component={CreateUserComponent} />
+          <Route exact path="/edit/:id" component={EditUserComponent} />
+          <Route exact path="/detail/:id" component={DetailUserComponent} />
         </BrowserRouter>
       </div>
     );

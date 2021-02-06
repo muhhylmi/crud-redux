@@ -55,3 +55,15 @@ export const getUserDetail = (id) => {
       });
   };
 };
+
+export const clearDetail = () => {
+  return (dispatch) => {
+    dispatch({
+      type: GET_USER_DETAIL,
+      payload: {
+        data: false,
+        errorMessage: false,
+      },
+    });
+  };
+};
