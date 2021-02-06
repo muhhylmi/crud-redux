@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import HeroComponent from "./component/HeroComponent";
 import NavbarComponent from "./component/NavbarComponent";
-import TableComponent from "./component/TableComponent";
 import CreateUserComponent from "./pages/CreateUserComponent";
 import DetailUserComponent from "./pages/DetailUserComponent";
 import EditUserComponent from "./pages/EditUserComponent";
