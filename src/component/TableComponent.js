@@ -1,11 +1,17 @@
-import { faEdit, faInfo, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEdit,
+  faInfo,
+  faTrash,
+  faUserPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 import BootstrapTable from "react-bootstrap-table-next";
-import { Button, Container } from "reactstrap";
+import { Button, Col, Container, Row } from "reactstrap";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
+import { Link } from "react-router-dom";
 
 const columns = [
   {
@@ -32,12 +38,16 @@ const columns = [
     formatter: (rowContent, row) => {
       return (
         <div>
-          <Button color="dark" className="mr-2">
-            <FontAwesomeIcon icon={faInfo} /> Detail
-          </Button>
-          <Button color="dark" className="mr-2">
-            <FontAwesomeIcon icon={faEdit} /> Edit
-          </Button>
+          <Link to={"detail/" + row.id}>
+            <Button color="dark" className="mr-2">
+              <FontAwesomeIcon icon={faInfo} /> Detail
+            </Button>
+          </Link>
+          <Link to={"edit/" + row.id}>
+            <Button color="dark" className="mr-2">
+              <FontAwesomeIcon icon={faEdit} /> Edit
+            </Button>
+          </Link>
           <Button color="dark" className="mr-2">
             <FontAwesomeIcon icon={faTrash} /> Delete
           </Button>
@@ -67,9 +77,21 @@ const TableComponent = (props) => {
       >
         {(props) => (
           <div>
-            <div className="float-right mt-3">
-              <SearchBar {...props.searchProps} />
-            </div>
+            <Row>
+              <Col>
+                <Link to="create">
+                  <Button color="dark" className="mt-3">
+                    <FontAwesomeIcon icon={faUserPlus} /> Tambah Data
+                  </Button>
+                </Link>
+              </Col>
+              <Col>
+                <div className="float-right mt-3">
+                  <SearchBar {...props.searchProps} />
+                </div>
+              </Col>
+            </Row>
+
             <BootstrapTable
               {...props.baseProps}
               pagination={paginationFactory()}

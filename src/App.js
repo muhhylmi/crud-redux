@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import HeroComponent from "./component/HeroComponent";
 import NavbarComponent from "./component/NavbarComponent";
 import TableComponent from "./component/TableComponent";
+import CreateUserComponent from "./pages/CreateUserComponent";
+import DetailUserComponent from "./pages/DetailUserComponent";
+import EditUserComponent from "./pages/EditUserComponent";
+import HomeComponent from "./pages/HomeComponent";
 
 export default class App extends Component {
   constructor(props) {
@@ -34,7 +39,20 @@ export default class App extends Component {
       <div>
         <NavbarComponent />
         <HeroComponent title={this.state.title} />
-        <TableComponent users={this.state.users} />
+        <BrowserRouter>
+          <Route exact path="/">
+            <HomeComponent users={this.state.users} />
+          </Route>
+          <Route exact path="/create">
+            <CreateUserComponent />
+          </Route>
+          <Route exact path="/edit/:id">
+            <EditUserComponent />
+          </Route>
+          <Route exact path="/detail/:id">
+            <DetailUserComponent />
+          </Route>
+        </BrowserRouter>
       </div>
     );
   }
