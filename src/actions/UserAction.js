@@ -83,10 +83,18 @@ export const postDataUser = (data) => {
   };
 };
 
-export const clearDetail = () => {
+export const clearData = () => {
   return (dispatch) => {
     dispatch({
       type: GET_USER_DETAIL,
+      payload: {
+        data: false,
+        errorMessage: false,
+      },
+    });
+
+    dispatch({
+      type: POST_DATA_USER,
       payload: {
         data: false,
         errorMessage: false,

@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Container } from "reactstrap";
 import TableComponent from "../component/TableComponent";
 import { connect } from "react-redux";
-import { clearDetail, getUserList } from "../actions/UserAction";
+import { clearData, getUserList } from "../actions/UserAction";
 
 class HomeComponent extends Component {
   componentDidMount() {
     this.props.dispatch(getUserList());
-    this.props.dispatch(clearDetail());
+    this.props.dispatch(clearData());
   }
 
   render() {
