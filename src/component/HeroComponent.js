@@ -1,3 +1,5 @@
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Jumbotron, Button, Container } from "reactstrap";
 
@@ -17,7 +19,9 @@ const HeroComponent = (props) => {
             out within the larger container.
           </p>
           <p className="lead">
-            <Button color="primary">Learn More</Button>
+            <Button color="primary">
+              <FontAwesomeIcon icon={faInfo} /> Learn More
+            </Button>
           </p>
         </Container>
       </Jumbotron>
