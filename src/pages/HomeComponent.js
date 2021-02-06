@@ -6,7 +6,7 @@ export default class HomeComponent extends Component {
   render() {
     return (
       <Container>
-        <TableComponent users={this.props.users} />
+        <TableComponent />
       </Container>
     );
   }

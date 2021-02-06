@@ -8,39 +8,14 @@ import EditUserComponent from "./pages/EditUserComponent";
 import HomeComponent from "./pages/HomeComponent";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      title: "Latihan CRUD dengan Redux",
-      users: [
-        {
-          id: 1,
-          nama: "Syahabuddin",
-          alamat: "Kemit",
-        },
-        {
-          id: 2,
-          nama: "Hylmi",
-          alamat: "Kwaren",
-        },
-        {
-          id: 3,
-          nama: "Husna",
-          alamat: "Ngawen",
-        },
-      ],
-    };
-  }
-
   render() {
     return (
       <div>
         <NavbarComponent />
-        <HeroComponent title={this.state.title} />
+        <HeroComponent />
         <BrowserRouter>
           <Route exact path="/">
-            <HomeComponent users={this.state.users} />
+            <HomeComponent />
           </Route>
           <Route exact path="/create">
             <CreateUserComponent />
