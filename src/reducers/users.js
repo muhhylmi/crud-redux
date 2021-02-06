@@ -1,4 +1,8 @@
-import { GET_USER_DETAIL, GET_USER_LIST } from "../actions/UserAction";
+import {
+  GET_USER_DETAIL,
+  GET_USER_LIST,
+  POST_DATA_USER,
+} from "../actions/UserAction";
 
 let initialState = {
   title: "Latihan CRUD dengan Redux",
@@ -6,6 +10,8 @@ let initialState = {
   getErrorList: false,
   getUserDetail: false,
   getDetailError: false,
+  postDataUser: false,
+  errorPostDataUser: false,
 };
 
 const users = (state = initialState, action) => {
@@ -22,6 +28,12 @@ const users = (state = initialState, action) => {
         ...state,
         getUserDetail: action.payload.data,
         getDetailError: action.payload.errorMessage,
+      };
+    case POST_DATA_USER:
+      return {
+        ...state,
+        postDataUser: action.payload.data,
+        errorPostDataUser: action.payload.errorMessage,
       };
 
     default:
