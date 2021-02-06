@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_USER_LIST = "GET_USER_LIST";
 export const GET_USER_DETAIL = "GET_USER_DETAIL";
 export const POST_DATA_USER = "POST_DATA_USER";
+export const PUT_DATA_UPDATE = "PUT_DATA_UPDATE";
 
 const API_URL =
   "https://my-json-server.typicode.com/muhhylmi/data-crud-redux/users";
@@ -74,6 +75,32 @@ export const postDataUser = (data) => {
       .catch(function (error) {
         dispatch({
           type: POST_DATA_USER,
+          payload: {
+            data: false,
+            errorMessage: error.message,
+          },
+        });
+      });
+  };
+};
+
+export const userUpdate = (data, id) => {
+  return (dispatch) => {
+    axios
+      .put(API_URL + "/" + id, data)
+      .then(function (response) {
+        console.log(response);
+        dispatch({
+          type: PUT_DATA_UPDATE,
+          payload: {
+            data: response.data,
+            errorMessage: false,
+          },
+        });
+      })
+      .catch(function (error) {
+        dispatch({
+          type: PUT_DATA_UPDATE,
           payload: {
             data: false,
             errorMessage: error.message,
